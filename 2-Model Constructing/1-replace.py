@@ -11,10 +11,10 @@ modified_lines_small = []
 modified_lines_large = []
 large_coord = []
 small_coord = []
-pour_dump_file = r'E:\file\MD-MCC\7-nanoparticles\3-replace\Pouring_funnel.dump'
-small_data_file = r'E:\file\MD-MCC\7-nanoparticles\3-replace\nano_6.data'
-large_data_file = r'E:\file\MD-MCC\7-nanoparticles\3-replace\nano_5.data'
-final_data_file = r'E:\file\MD-MCC\7-nanoparticles\3-replace\final3.data'
+pour_dump_file = r'E:\file\...\7-nanoparticles\3-replace\Pouring_funnel.dump'
+small_data_file = r'E:\file\...\7-nanoparticles\3-replace\nano_6.data'
+large_data_file = r'E:\file\...\7-nanoparticles\3-replace\nano_5.data'
+final_data_file = r'E:\file\...\7-nanoparticles\3-replace\final3.data'
 with open(pour_dump_file, 'r') as dump:
     lines_dump = dump.readlines()
     print(len(lines_dump))
