@@ -4,11 +4,11 @@ import pandas as pd
 import os
 import re
 
-# input_file = r'E:\file\MD-MCC\1-LiSi\amorphous-LiSi-PBE\structure00001.xsf'
+# input_file = r'E:\file\...\1-LiSi\amorphous-LiSi-PBE\structure00001.xsf'
 # output_file = r'E:\file\python-code\GNN\reshow\conv2txt\out.data'
 
-# input_file_path = r'E:\file\MD-MCC\1-LiSi\amorphous-LiSi-PBE'
-input_file_path = r'E:\file\MD-MCC\1-LiSi\test' # 小数据测试一下
+# input_file_path = r'E:\file\...\1-LiSi\amorphous-LiSi-PBE'
+input_file_path = r'E:\file\...\1-LiSi\test' # 小数据测试一下
 output_file_path = r'E:\file\python-code\GNN\reshow\conv2txt\out-data-test'
 os.mkdir(output_file_path) # 生成之后就可以注释了
 input_path_list = os.listdir(input_file_path) # 列出文件
@@ -22,7 +22,7 @@ regex = re.compile(r'structure+\d+\.+xsf$')
 for i in input_path_list:
     file_num += regex.findall(i) # 统计xsf文件数量,并放在一起
 file_po = [] # xsf文件位置集合
-path_out = r'E:\file\MD-MCC\1-LiSi\test\{}'
+path_out = r'E:\file\...\1-LiSi\test\{}'
 for i in list(range(len(file_num))):
     file_po.append(path_out.format(file_num[i]))
     data_path_name.append(data_path_format.format('structure' + str(i+1).zfill(5) + '.data'))
