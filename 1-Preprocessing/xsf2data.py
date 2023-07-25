@@ -67,7 +67,8 @@ for i in list(range(len(file_num))):
         for line in select_lines_all:
             if re.match(r'\w+', line):
                 final_all.append(re.split(r'\s+', line)) # 空格处分开
-                final = re.split(r'\D+\.?\D', line) # 其实与上行效果一样
+                # final = re.split(r'\D+\.?\D', line) # 忽略了负号
+                final = re.split(r'\s+', line)
                 final_temp = final[1:4] # 左闭右开
                 final_num.append(final_temp)
         final_num = np.array(final_num) # 没有Li/Si在第一列
