@@ -130,23 +130,5 @@ for i in list(range(len(file_num))):
                 final_num_list2str = '   '.join(final_num_list[j])
                 f2.write(final_num_list2str)
                 f2.write('\n')
-            # for line in final_num_list: # 全部挤在一起
-            #     f2.writelines(line)
-            #     f2.write('\n')
-            #     print(line)
-
-            # atom_ID_m1 = list(range(0, a + b, 1))
-            # for i in atom_ID_m1:
-            # #     test = final_num[i, :]
-            # #     test.tofile(output_file, sep='  ', format='%s')
-            # #     print(final_num[i, :])
-            # #     print(type(final_num[i, :]))
-            #     f2.writelines(final_num_char[i, :])
-            #     f2.write('\n')
-
-            # for line in final_num_list2str: # 只写一行且是横变纵
-            #     f2.write(line + '\n')
-            # f2.write('\n')
-            # f2.write('\n')
             f2.close()
     f.close()
