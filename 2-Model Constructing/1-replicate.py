@@ -1,103 +1,3 @@
-#%% 0-incomplete replicate, only one dim
-# import numpy as np
-# import pandas as pd
-# input_file_path = r'E:\file\MD-MCC\8-LiSi'
-# data_file = input_file_path + r'\1.data'
-# output_file = input_file_path + r'\out1.data'
-# original_coord_li_x = []
-# original_coord_li_y = []
-# original_coord_li_z = []
-# original_coord_si_x = []
-# original_coord_si_y = []
-# original_coord_si_z = []
-# original_coord_li = []
-# original_coord_si = []
-# with open(data_file, 'r') as f:
-#     lines = f.readlines()
-#     box_x = lines[5].split()[1]
-#     box_y = lines[6].split()[1]
-#     box_z = lines[7].split()[1]
-#     for i in list(range(int(len(lines)) - 16)):
-#         a = lines[i + 16].split()
-#         if a[1] == '1':
-#             original_coord_li_x.append(a[2])
-#             original_coord_li_y.append(a[3])
-#             original_coord_li_z.append(a[4])
-#             original_coord_li.append(a)
-#         elif a[1] == '2':
-#             original_coord_si_x.append(a[2])
-#             original_coord_si_y.append(a[3])
-#             original_coord_si_z.append(a[4])
-#             original_coord_si.append(a)
-# f.close()
-# num_x = int(2)
-# num_y = int(2)
-# num_z = int(2)
-# coord_li_x = []
-# coord_li_y = []
-# coord_li_z = []
-# coord_si_x = []
-# coord_si_y = []
-# coord_si_z = []
-# box_x_new = np.float32(box_x) * (num_x + 1)
-# box_y_new = np.float32(box_y) * (num_y + 1)
-# box_z_new = np.float32(box_z) * (num_z + 1)
-# for j in list(range(len(original_coord_li_x))):
-#     for a in list(range(num_x)):
-#         coord_li_x.append(np.float32(original_coord_li_x[j]) + np.float32(box_x) * int(a+1))
-#     for b in list(range(num_y)):
-#         coord_li_y.append(np.float32(original_coord_li_y[j]) + np.float32(box_y) * int(b+1))
-#     for c in list(range(num_z)):
-#         coord_li_z.append(np.float32(original_coord_li_z[j]) + np.float32(box_z) * int(c+1))
-# for k in list(range(len(original_coord_si_x))):
-#     for l in list(range(num_x)):
-#         coord_si_x.append(np.float32(original_coord_si_x[k]) + np.float32(box_x) * int(l+1))
-#     for m in list(range(num_y)):
-#         coord_si_y.append(np.float32(original_coord_si_y[k]) + np.float32(box_y) * int(m+1))
-#     for n in list(range(num_z)):
-#         coord_si_z.append(np.float32(original_coord_si_z[k]) + np.float32(box_z) * int(n+1))
-#
-# atom_num_li = int(len(coord_li_x)) + int(len(coord_li_y)) + int(len(coord_li_z))
-# atom_num_li_total = int(len(original_coord_li)) + atom_num_li
-# atom_num_si = int(len(coord_si_x)) + int(len(coord_si_y)) + int(len(coord_si_z))
-# atom_num_total = int(len(original_coord_li_x)) + atom_num_li + int(len(original_coord_si_x)) + atom_num_si
-# atom_type_li = [1] * atom_num_li
-# atom_type_si = [2] * atom_num_si
-# df_li_origin = pd.DataFrame(original_coord_li, columns=['order', 'id', 'x', 'y', 'z'])
-# df_li_x = pd.DataFrame({'order': list(range(int(len(original_coord_li_x)) + 1,
-#                                             int(len(original_coord_li_x) + len(coord_li_x)) + 1)),
-#                         'id': [1] * int(len(coord_li_x)),
-#                         'x': coord_li_x, 'y': original_coord_li_y * num_x, 'z': original_coord_li_z * num_x})
-# df_li_y = pd.DataFrame({'order': list(range(1 + int(len(original_coord_li_x) + len(coord_li_x)),
-#                                             1 + int(len(original_coord_li_x) + len(coord_li_x) + len(coord_li_y)))),
-#                         'id': [1] * int(len(coord_li_y)),
-#                         'x': original_coord_li_x * num_y, 'y': coord_li_y, 'z': original_coord_li_z * num_y})
-# df_li_z = pd.DataFrame({'order': list(range(1 + int(len(original_coord_li_x) + len(coord_li_x) + len(coord_li_y)),
-#                                             1 + atom_num_li_total)),
-#                         'id': [1] * int(len(coord_li_z)),
-#                         'x': original_coord_li_x * num_z, 'y': original_coord_li_y * num_z, 'z': coord_li_z})
-# df_li = pd.concat([df_li_origin, df_li_x, df_li_y, df_li_z])
-#
-# for p in list(range(len(original_coord_si))):
-#     original_coord_si[p][0] = str(int(original_coord_si[p][0]) + 156)
-#
-# df_si_origin = pd.DataFrame(original_coord_si, columns=['order', 'id', 'x', 'y', 'z'])
-# df_si_x = pd.DataFrame({'order': list(range(1 + int(len(original_coord_si_x) + atom_num_li_total),
-#                                             1 + int(len(original_coord_si_x) + atom_num_li_total + len(coord_si_x)))),
-#                         'id': [2] * int(len(coord_si_x)),
-#                         'x': coord_si_x, 'y': original_coord_si_y * num_x, 'z': original_coord_si_z * num_x})
-# df_si_y = pd.DataFrame({'order': list(range(1 + int(len(original_coord_si_x) + atom_num_li_total + len(coord_si_x)),
-#                                             1 + int(len(original_coord_si_x) + atom_num_li_total + len(coord_si_x)
-#                                                 + len(coord_si_y)))),
-#                         'id': [2] * int(len(coord_si_y)),
-#                         'x': original_coord_si_x * num_y, 'y': coord_si_y, 'z': original_coord_si_z * num_y})
-# df_si_z = pd.DataFrame({'order': list(range(1 + int(len(original_coord_si_x) + atom_num_li_total + len(coord_si_x)
-#                                                 + len(coord_si_y)), 1 + atom_num_total)),
-#                         'id': [2] * int(len(coord_si_z)),
-#                         'x': original_coord_si_x * num_z, 'y': original_coord_si_y * num_z, 'z': coord_si_z})
-# df_si = pd.concat([df_si_origin, df_si_x, df_si_y, df_si_z])
-# df = pd.concat([df_li, df_si])
-# df.to_csv('2.data', sep= ' ', header=False, index=False)
 
 #%% 1-modified replicate
 # import numpy as np
@@ -174,6 +74,7 @@
 # df = pd.concat([df_li, df_si])
 # # df.to_csv('2.data', sep= ' ', header=False, index=False)
 # final = np.array(df).tolist()
+
 #%% 2-modify box
 import numpy as np
 # input_file_path = r'E:\file\MD-MCC\8-LiSi'
@@ -360,6 +261,7 @@ def replicate(num_x, num_y, num_z, input_file_path, input_file_name, output_file
 # replicate(67, 39, 19, r'E:\file\MD-MCC\8-LiSi', r'\1.data', r'\out1_2.data', 5, 6, 7, 16)
 # replicate(33, 19, 9, r'E:\file\MD-MCC\8-LiSi', r'\1.data', r'\out1_3.data', 5, 6, 7, 16)
 replicate(25, 16, 6, r'E:\file\MD-MCC\8-LiSi', r'\1.data', r'\out1_4.data', 5, 6, 7, 16)
+
 #%% 4-function, non-squared
 import numpy as np
 import pandas as pd
