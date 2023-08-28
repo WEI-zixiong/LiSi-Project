@@ -32,9 +32,6 @@ for i in list(range(len(file_num))):
     with open(file_po[i]) as f:
         lines = f.readlines()
 
-# with open(input_file, 'r') as f1:
-#     lines = f1.readlines() # 读取每一行数据
-
         count = 0 # 查询行数
         a = 0
         b = 0
