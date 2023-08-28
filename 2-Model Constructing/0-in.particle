@@ -16,12 +16,10 @@ variable	    rlo equal 10
 variable	    rhi equal 15
 variable	    dlo equal 2.0*${rlo}
 variable	    dhi equal 2.0*${rhi}
-
 variable	    skin equal ${rhi}
 
 #====== Constructing Structure =======#
 newton 		    off
-
 region		    boxreg block 0 ${boxx} 0 ${boxy} 0 ${boxz} units box
 create_box	    2 boxreg
 
