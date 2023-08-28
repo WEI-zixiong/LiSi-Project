@@ -3,7 +3,7 @@
 import numpy as np
 import pandas as pd
 import math
-input_file_path = r'E:\file\MD-MCC\8-LiSi'
+input_file_path = r'E:\file\...\8-LiSi'
 input_file_name = r'\out1.data'
 output_file_name = r'\sphere1.data'
 data_file = input_file_path + input_file_name
@@ -114,7 +114,7 @@ f.close()
 import numpy as np
 import pandas as pd
 import math
-# input_file_path = r'E:\file\MD-MCC\8-LiSi'
+# input_file_path = r'E:\file\...\8-LiSi'
 # input_file_name = r'\out2_test.data'
 # output_file_name = r'\sphere2_test.data'
 # perturb_li = 1.8
@@ -231,14 +231,11 @@ def cut(input_file_path, input_file_name, output_file_name, p_li, p_si, radius, 
         f2.close()
     f.close()
 
-# cut(r'E:\file\MD-MCC\8-LiSi', r'\out1.data', r'\sphere1.data', 1.5, 1.2, 30, 0) # Li13Si4
-# cut(r'E:\file\MD-MCC\8-LiSi', r'\out2_test.data', r'\sphere2_test.data', 1.8, 1.2, 30, 24) # LiSi
-
 #%% 3-non-ortho, monitor
 import numpy as np
 import pandas as pd
 import math
-input_file_path = r'E:\file\MD-MCC\8-LiSi'
+input_file_path = r'E:\file\...\8-LiSi'
 input_file_name = r'\out3_test_modify.data'
 output_file_name = r'\sphere3_test.data'
 perturb_li = 1.8
