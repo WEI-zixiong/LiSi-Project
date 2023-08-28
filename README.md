@@ -2,6 +2,7 @@
  
 1. Preprocessing: convert the xsf file to the data file.
 2. Model Constructing:
+   
    (0) generate Coarse Graning (CG) particles through LAMMPS;
    
    (1) replicate in 3 dimensions from a unit cell;
