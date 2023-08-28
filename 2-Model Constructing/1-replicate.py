@@ -2,7 +2,7 @@
 #%% 1-modified replicate
 # import numpy as np
 # import pandas as pd
-# input_file_path = r'E:\file\MD-MCC\8-LiSi'
+# input_file_path = r'E:\file\...\8-LiSi'
 # data_file = input_file_path + r'\1.data'
 # output_file = input_file_path + r'\out1.data'
 # original_coord_li_x = []; original_coord_li_y = []; original_coord_li_z = []
@@ -77,7 +77,7 @@
 
 #%% 2-modify box
 import numpy as np
-# input_file_path = r'E:\file\MD-MCC\8-LiSi'
+# input_file_path = r'E:\file\...\8-LiSi'
 # input_file_name = r'\3.data'
 # output_file_name = r'\3_modify.data'
 def modify_box(input_file_path, input_file_name, output_file_name):
@@ -135,7 +135,7 @@ def modify_box(input_file_path, input_file_name, output_file_name):
             f2.write(final_num_list2str)
             f2.write('\n')
     f2.close()
-modify_box(r'E:\file\MD-MCC\8-LiSi', r'\out3_test.data', r'\out3_test_modify.data')
+modify_box(r'E:\file\...\8-LiSi', r'\out3_test.data', r'\out3_test_modify.data')
 
 #%% 3-final function, squared
 import numpy as np
@@ -257,10 +257,7 @@ def replicate(num_x, num_y, num_z, input_file_path, input_file_name, output_file
             f2.write('\n')
     f2.close()
     return "DONE!"
-# replicate(16, 9, 4, r'E:\file\MD-MCC\8-LiSi', r'\1.data', r'\out1.data', 5, 6, 7, 16) # Li13Si4
-# replicate(67, 39, 19, r'E:\file\MD-MCC\8-LiSi', r'\1.data', r'\out1_2.data', 5, 6, 7, 16)
-# replicate(33, 19, 9, r'E:\file\MD-MCC\8-LiSi', r'\1.data', r'\out1_3.data', 5, 6, 7, 16)
-replicate(25, 16, 6, r'E:\file\MD-MCC\8-LiSi', r'\1.data', r'\out1_4.data', 5, 6, 7, 16)
+replicate(25, 16, 6, r'E:\file\...\8-LiSi', r'\1.data', r'\out1_4.data', 5, 6, 7, 16)
 
 #%% 4-function, non-squared
 import numpy as np
@@ -395,5 +392,4 @@ def replicate(num_x, num_y, num_z, input_file_path, input_file_name, output_file
             f2.write('\n')
     f2.close()
     return "DONE!"
-# replicate(15, 15, 15, r'E:\file\MD-MCC\8-LiSi', r'\2_modify.data', r'\out2_test.data', 6,7,8,17,-4.4,0,2.86,2.86) # LiSi
-replicate(15, 15, 15, r'E:\file\MD-MCC\8-LiSi', r'\3_modify.data', r'\out3_test.data', 6,7,8,17,0.8,0.5,-2.7,0) # LiSi3
+replicate(15, 15, 15, r'E:\file\...\8-LiSi', r'\3_modify.data', r'\out3_test.data', 6,7,8,17,0.8,0.5,-2.7,0) # LiSi3
