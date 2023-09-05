@@ -10,3 +10,8 @@
    (2) cut spheres/nanoparticles from replicated structures;
    
    (3) replace different-sized CG particles with different all-atom nanoparticles.
+3. Visualization:
+
+   (1) monitor the training of ML potential;
+
+   (2) visualize the distribution of dataset.
