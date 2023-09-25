@@ -1,7 +1,10 @@
 # LiSi Project
  
-1. Preprocessing: convert the xsf file to the data file.
-2. Model Constructing:
+1. Preprocessing: 
+
+   convert the xsf file to the data file.
+   
+2. Construction of models:
 
    (0) generate Coarse Graning (CG) particles through LAMMPS;
    
