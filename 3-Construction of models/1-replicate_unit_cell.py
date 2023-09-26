@@ -2,7 +2,7 @@
 #%% 1-modified replicate
 import numpy as np
 import pandas as pd
-input_file_path = r'E:\file\...\8-LiSi'
+input_file_path = r'E:\file_path'
 data_file = input_file_path + r'\1.data'
 output_file = input_file_path + r'\out1.data'
 original_coord_li_x = []; original_coord_li_y = []; original_coord_li_z = []
@@ -72,14 +72,10 @@ df_li = pd.DataFrame({'order': list_li, 'id': id_li,
 df_si = pd.DataFrame({'order': list_si, 'id': id_si,
                       'x': coord_si_x, 'y': coord_si_y, 'z': coord_si_z})
 df = pd.concat([df_li, df_si])
-# df.to_csv('2.data', sep= ' ', header=False, index=False)
 final = np.array(df).tolist()
 
-#%% 2-modify box
+#%% 2-modify box size
 import numpy as np
-# input_file_path = r'E:\file\...\8-LiSi'
-# input_file_name = r'\3.data'
-# output_file_name = r'\3_modify.data'
 def modify_box(input_file_path, input_file_name, output_file_name):
     data_file = input_file_path + input_file_name
     output_file = input_file_path + output_file_name
@@ -135,9 +131,9 @@ def modify_box(input_file_path, input_file_name, output_file_name):
             f2.write(final_num_list2str)
             f2.write('\n')
     f2.close()
-modify_box(r'E:\file\...\8-LiSi', r'\out3_test.data', r'\out3_test_modify.data')
+modify_box(r'E:\file_path', r'\out3_test.data', r'\out3_test_modify.data')
 
-#%% 3-final function, squared
+#%% 3-final function, Orthorhombic
 import numpy as np
 import pandas as pd
 def replicate(num_x, num_y, num_z, input_file_path, input_file_name, output_file_name, x, y, z, start):
@@ -230,7 +226,6 @@ def replicate(num_x, num_y, num_z, input_file_path, input_file_name, output_file
     df_si = pd.DataFrame({'order': list_si, 'id': id_si,
                           'x': coord_si_x, 'y': coord_si_y, 'z': coord_si_z})
     df = pd.concat([df_li, df_si])
-    # df.to_csv('2.data', sep=' ', header=False, index=False)
     final = np.array(df).tolist() # first two columns: int
 
     with open(output_file, 'w') as f2:
@@ -257,9 +252,9 @@ def replicate(num_x, num_y, num_z, input_file_path, input_file_name, output_file
             f2.write('\n')
     f2.close()
     return "DONE!"
-replicate(25, 16, 6, r'E:\file\...\8-LiSi', r'\1.data', r'\out1_4.data', 5, 6, 7, 16)
+replicate(25, 16, 6, r'E:\file_path', r'\1.data', r'\out1_4.data', 5, 6, 7, 16)
 
-#%% 4-function, non-squared
+#%% 4-function, non-Orthorhombic
 import numpy as np
 import pandas as pd
 def replicate(num_x, num_y, num_z, input_file_path, input_file_name, output_file_name, x, y, z, start, dx, dz, xy, xz):
@@ -365,7 +360,6 @@ def replicate(num_x, num_y, num_z, input_file_path, input_file_name, output_file
     df_si = pd.DataFrame({'order': list_si, 'id': id_si,
                           'x': coord_si_x, 'y': coord_si_y, 'z': coord_si_z})
     df = pd.concat([df_li, df_si])
-    # df.to_csv('2.data', sep=' ', header=False, index=False)
     final = np.array(df).tolist() # first two columns: int
 
     with open(output_file, 'w') as f2:
@@ -392,4 +386,4 @@ def replicate(num_x, num_y, num_z, input_file_path, input_file_name, output_file
             f2.write('\n')
     f2.close()
     return "DONE!"
-replicate(15, 15, 15, r'E:\file\...\8-LiSi', r'\3_modify.data', r'\out3_test.data', 6,7,8,17,0.8,0.5,-2.7,0) # LiSi3
+replicate(15, 15, 15, r'E:\file_path', r'\3_modify.data', r'\out3_test.data', 6,7,8,17,0.8,0.5,-2.7,0) # LiSi3

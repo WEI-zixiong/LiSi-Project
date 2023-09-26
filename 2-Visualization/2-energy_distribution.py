@@ -50,59 +50,42 @@ for i in list(range(len(input_path_list[:10000]))):
 energy = [np.float32(x) for x in energy]
 num_li = [int(x) for x in num_li]
 num_si = [int(x) for x in num_si]
-matplotlib.rcParams['font.sans-serif']=['SimHei']   # 用黑体显示中文
-matplotlib.rcParams['axes.unicode_minus']=False     # 正常显示负号
+matplotlib.rcParams['font.sans-serif']=['SimHei']   
+matplotlib.rcParams['axes.unicode_minus']=False     
 
 y = 3
 if y == 0 :
-    # 比例 #
+    # ratios #
     plt.hist(ratio, bins=20, edgecolor='black')
-    # 显示横轴标签
     plt.xlabel("Li/Si Ratio")
-    # 显示纵轴标签
     plt.ylabel("Frequency")
-    # 显示图标题
     plt.title("Histogram")
     plt.show()
 elif y == 1 :
-    # 能量 #
+    # energy #
     plt.hist(energy, bins=20, density=False, histtype='bar', align='mid', facecolor="blue", edgecolor="black", alpha=0.7)
-    # interval_boundaries = np.linspace(-210, -190, 20)  # Creates 10 equally spaced intervals from -204 to -194
-    # plt.hist(energy, bins=interval_boundaries, edgecolor='black')  # Adjust the number of bins as needed
-    # 显示横轴标签
     plt.xlabel("Total Energy (eV)")
-    # 显示纵轴标签
     plt.ylabel("Frequency")
-    # 显示图标题
     plt.title("Histogram")
     plt.show()
 elif y == 2:
     # averaged energy #
     plt.hist(norm_energy, bins=20, edgecolor='black')
-    # 显示横轴标签
     plt.xlabel("Energy per atom")
-    # 显示纵轴标签
     plt.ylabel("Frequency")
-    # 显示图标题
     plt.title("Histogram")
     plt.show()
 elif y == 3:
-    # li num #
+    # li number #
     plt.hist(num_li, bins=20, edgecolor='black')
-    # 显示横轴标签
     plt.xlabel("Number of Li atoms")
-    # 显示纵轴标签
     plt.ylabel("Frequency")
-    # 显示图标题
     plt.title("Histogram")
     plt.show()
 elif y == 4:
-    # si num #
+    # si number #
     plt.hist(num_si, bins=20, edgecolor='black')
-    # 显示横轴标签
     plt.xlabel("Number of Si atoms")
-    # 显示纵轴标签
     plt.ylabel("Frequency")
-    # 显示图标题
     plt.title("Histogram")
     plt.show()

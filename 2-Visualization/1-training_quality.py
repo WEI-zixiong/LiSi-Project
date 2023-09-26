@@ -10,18 +10,10 @@ errors3 = []
 errors = []
 with open(r"E:\file\...\train.out1") as fp1:
     for line in fp1:
-        # m = re.search(r'(?<=\|)',line)
-        # print(m)
         if re.match("^ *[0-9].* \|+", line):
-            # print(line)
-            # print(type(line))
             a1 = re.split(r'\W+\.?\W', line)
-            # print(a1)
-            # print(type(a1))
             b1 = a1[2:6]
-            # print(b1)
             errors1.append(b1)
-            # errors.append([float(a) for a in line.split()[1:-1]])
 errors1 = np.array(errors1)
 with open(r"E:\file\...\train.out2") as fp2:
     for line in fp2:
@@ -42,16 +34,6 @@ errors = pd.DataFrame(
     data=errors,
     columns=['ERROR(train)', 'ERROR(test)', 'E(train)', 'E(test)'])
 errors = errors.astype(float)
-# print(errors)
-# print(type(errors))
-# print(errors.size)
-# print(errors.shape)
-# print(errors.ndim)
-
-# print(errors[['ERROR(train)', 'ERROR(test)']])
-# ax = errors[['ERROR(train)', 'ERROR(test)']].plot(logy=True)
-# ax.set_xlabel("Epoch"); ax.set_ylabel("ERROR (Ha/atom)")
-# plt.show()
 
 errors.plot(None, y = ['ERROR(train)', 'ERROR(test)'], kind = 'line', logy = True)
 plt.xlabel('Epoch'); plt.ylabel('ERROR (Ha/atom)')

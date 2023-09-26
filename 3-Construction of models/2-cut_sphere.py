@@ -1,9 +1,9 @@
 
-#%% 1-ortho, monitor
+#%% 1-Orthorhombic, monitor
 import numpy as np
 import pandas as pd
 import math
-input_file_path = r'E:\file\...\8-LiSi'
+input_file_path = r'E:\file_path'
 input_file_name = r'\out1.data'
 output_file_name = r'\sphere1.data'
 data_file = input_file_path + input_file_name
@@ -110,17 +110,10 @@ with open(data_file, 'r') as f:
     f2.close()
 f.close()
 
-#%% 2-non-ortho, function
+#%% 2-non-Orthorhombic, function
 import numpy as np
 import pandas as pd
 import math
-# input_file_path = r'E:\file\...\8-LiSi'
-# input_file_name = r'\out2_test.data'
-# output_file_name = r'\sphere2_test.data'
-# perturb_li = 1.8
-# perturb_si = 1.2
-# radius_li = 30
-# offset = 24
 def cut(input_file_path, input_file_name, output_file_name, p_li, p_si, radius, offset):
     data_file = input_file_path + input_file_name
     output_file = input_file_path + output_file_name
@@ -141,7 +134,6 @@ def cut(input_file_path, input_file_name, output_file_name, p_li, p_si, radius, 
         box_x = np.float32(lines[6].split()[1])
         box_y = np.float32(lines[7].split()[1])
         box_z = np.float32(lines[8].split()[1])
-        # box_min = round(np.min([box_x, box_y, box_z]))
         box_min = math.floor(np.min([box_x, box_y, box_z]))
         box_half = np.float32(box_min)/2
         box_half_modify = box_half + offset
@@ -231,11 +223,11 @@ def cut(input_file_path, input_file_name, output_file_name, p_li, p_si, radius, 
         f2.close()
     f.close()
 
-#%% 3-non-ortho, monitor
+#%% 3-non-Orthorhombic, monitor
 import numpy as np
 import pandas as pd
 import math
-input_file_path = r'E:\file\...\8-LiSi'
+input_file_path = r'E:\file_path'
 input_file_name = r'\out3_test_modify.data'
 output_file_name = r'\sphere3_test.data'
 perturb_li = 1.8
@@ -257,7 +249,6 @@ with open(data_file, 'r') as f:
     box_x = np.float32(lines[6].split()[1])
     box_y = np.float32(lines[7].split()[1])
     box_z = np.float32(lines[8].split()[1])
-    # box_min = round(np.min([box_x, box_y, box_z]))
     box_min = math.floor(np.min([box_x, box_y, box_z]))
     box_half = np.float32(box_min) / 2
     box_half_modify = box_half + offset
